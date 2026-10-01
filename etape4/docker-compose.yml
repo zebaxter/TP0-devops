@@ -1,0 +1,14 @@
+# Étape 4 — deux services qui se parlent par leur NOM
+services:
+  web:
+    build: ./app                 # construit l'image à partir du dossier ./app (et de son Dockerfile)
+    ports:
+      - "8080:5000"
+    environment:
+      REDIS_HOST: redis          # « redis » = le nom du service ci-dessous. Docker le traduit en adresse.
+      MESSAGE: Bonjour
+    depends_on:
+      - redis                    # démarrer redis avant web
+
+  redis:
+    image: redis:7-alpine        # pas de ports : seul « web » a besoin de lui parler

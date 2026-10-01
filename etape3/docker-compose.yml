@@ -1,0 +1,8 @@
+# Étape 3 — un volume : le dossier ./site de votre machine remplace la page par défaut de nginx
+services:
+  web:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./site:/usr/share/nginx/html:ro     # dossier local : dossier dans le conteneur : lecture seule

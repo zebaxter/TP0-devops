@@ -1,0 +1,6 @@
+# Étape 2 — le même conteneur qu'avec « docker run », mais décrit dans un fichier
+services:
+  web:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
